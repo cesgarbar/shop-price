@@ -1,0 +1,279 @@
+{
+	"info": {
+		"_postman_id": "8bb4324d-f2fe-4685-b210-8e3eaadd3e97",
+		"name": "inditex-shop-price test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/product/prices T1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Size = 1\", function () {\r",
+							"  Object.keys(jsonData).length === 1;\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}{{port}}{{path}}/product/prices?date=2020-06-14 10:00:00&productId=35455&brandId=1",
+					"host": [
+						"{{server}}{{port}}{{path}}"
+					],
+					"path": [
+						"product",
+						"prices"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2020-06-14 10:00:00"
+						},
+						{
+							"key": "productId",
+							"value": "35455",
+							"description": "35455 | 35456 | 35457"
+						},
+						{
+							"key": "brandId",
+							"value": "1",
+							"description": "1 | 2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/product/prices T2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Size = 2\", function () {\r",
+							"  Object.keys(jsonData).length === 2;\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}{{port}}{{path}}/product/prices?date=2020-06-14 16:00:00&productId=35455&brandId=1",
+					"host": [
+						"{{server}}{{port}}{{path}}"
+					],
+					"path": [
+						"product",
+						"prices"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2020-06-14 16:00:00"
+						},
+						{
+							"key": "productId",
+							"value": "35455",
+							"description": "35455 | 35456 | 35457"
+						},
+						{
+							"key": "brandId",
+							"value": "1",
+							"description": "1 | 2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/product/prices T3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Size = 1\", function () {\r",
+							"  Object.keys(jsonData).length === 1;\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}{{port}}{{path}}/product/prices?date=2020-06-14 21:00:00&productId=35455&brandId=1",
+					"host": [
+						"{{server}}{{port}}{{path}}"
+					],
+					"path": [
+						"product",
+						"prices"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2020-06-14 21:00:00"
+						},
+						{
+							"key": "productId",
+							"value": "35455",
+							"description": "35455 | 35456 | 35457"
+						},
+						{
+							"key": "brandId",
+							"value": "1",
+							"description": "1 | 2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/product/prices T4",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Size = 2\", function () {\r",
+							"  Object.keys(jsonData).length === 2;\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}{{port}}{{path}}/product/prices?date=2020-06-15 10:00:00&productId=35455&brandId=1",
+					"host": [
+						"{{server}}{{port}}{{path}}"
+					],
+					"path": [
+						"product",
+						"prices"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2020-06-15 10:00:00"
+						},
+						{
+							"key": "productId",
+							"value": "35455",
+							"description": "35455 | 35456 | 35457"
+						},
+						{
+							"key": "brandId",
+							"value": "1",
+							"description": "1 | 2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/product/prices T5",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Size = 2\", function () {\r",
+							"  Object.keys(jsonData).length === 2;\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}{{port}}{{path}}/product/prices?date=2020-06-16 21:00:00&productId=35455&brandId=1",
+					"host": [
+						"{{server}}{{port}}{{path}}"
+					],
+					"path": [
+						"product",
+						"prices"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2020-06-16 21:00:00"
+						},
+						{
+							"key": "productId",
+							"value": "35455",
+							"description": "35455 | 35456 | 35457"
+						},
+						{
+							"key": "brandId",
+							"value": "1",
+							"description": "1 | 2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

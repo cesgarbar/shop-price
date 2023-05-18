@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+
+    <springProfile name="local">
+
+        <!-- App properties -->
+        <springProperty name="appLogPath" source="inditex.shopprice.log.path"/>
+        <springProperty name="appLogFile" source="inditex.shopprice.log.file"/>
+        <springProperty name="appLogLevel" source="inditex.shopprice.log.level"/>
+        <springProperty name="appConsoleLogPattern" source="inditex.shopprice.log.pattern.console"/>
+        <springProperty name="appFileLogPattern" source="inditex.shopprice.log.pattern.file"/>
+
+        <!-- Console appender -->
+        <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+
+            <encoder>
+                <pattern>${appConsoleLogPattern}</pattern>
+            </encoder>
+
+        </appender>
+
+        <!-- File appender for application logs -->
+        <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+            <encoder>
+                <pattern>${appFileLogPattern}</pattern>
+            </encoder>
+            <file>${appLogPath}${appLogFile}.log</file>
+            <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+                <cleanHistoryOnStart>${LOG_FILE_CLEAN_HISTORY_ON_START:-false}</cleanHistoryOnStart>
+                <fileNamePattern>${appLogPath}${appLogFile}.%d{yyyy-MM-dd}.%i.gz</fileNamePattern>
+                <maxFileSize>${LOG_FILE_MAX_SIZE:-10MB}</maxFileSize>
+                <maxHistory>${LOG_FILE_MAX_HISTORY:-0}</maxHistory>
+                <totalSizeCap>${LOG_FILE_TOTAL_SIZE_CAP:-0}</totalSizeCap>
+            </rollingPolicy>
+
+        </appender>
+
+        <!-- Custom loggers -->
+        <logger name="org.springframework.web" level="${appLogLevel}" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+        </logger>
+
+        <logger name="com.inditex.shopprice" level="${appLogLevel}" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+        </logger>
+
+        <!-- Root logger -->
+        <root level="info">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+        </root>
+
+    </springProfile>
+
+    <springProfile name="deploy">
+
+        <!-- App properties -->
+        <springProperty name="appLogPath" source="inditex.shopprice.log.path"/>
+        <springProperty name="appLogFile" source="inditex.shopprice.log.file"/>
+        <springProperty name="appConsoleLogPattern" source="inditex.shopprice.log.pattern.console"/>
+        <springProperty name="appFileLogPattern" source="inditex.shopprice.log.pattern.file"/>
+        <springProperty name="appLogLevel" source="inditex.shopprice.log.level"/>
+
+        <!-- Console appender -->
+        <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+
+            <encoder>
+                <pattern>${appConsoleLogPattern}</pattern>
+            </encoder>
+
+        </appender>
+
+        <!-- File appender for application logs -->
+        <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+            <encoder>
+                <pattern>${appFileLogPattern}</pattern>
+            </encoder>
+            <file>${appLogPath}${appLogFile}.log</file>
+            <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+                <cleanHistoryOnStart>${LOG_FILE_CLEAN_HISTORY_ON_START:-false}</cleanHistoryOnStart>
+                <fileNamePattern>${appLogPath}${appLogFile}.%d{yyyy-MM-dd}.%i.gz</fileNamePattern>
+                <maxFileSize>${LOG_FILE_MAX_SIZE:-10MB}</maxFileSize>
+                <maxHistory>${LOG_FILE_MAX_HISTORY:-0}</maxHistory>
+                <totalSizeCap>${LOG_FILE_TOTAL_SIZE_CAP:-0}</totalSizeCap>
+            </rollingPolicy>
+
+        </appender>
+
+        <!-- Custom loggers -->
+        <logger name="org.springframework.web" level="${appLogLevel}" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+        </logger>
+
+        <logger name="com.inditex.shopprice" level="${appLogLevel}" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+        </logger>
+
+        <!-- Root logger -->
+        <root level="info">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+        </root>
+
+    </springProfile>
+
+    <springProfile name="test">
+
+        <!-- App properties -->
+        <springProperty name="appLogPath" source="inditex.shopprice.log.path"/>
+        <springProperty name="appLogLevel" source="inditex.shopprice.log.level"/>
+        <springProperty name="appConsoleLogPattern" source="inditex.shopprice.log.pattern.console"/>
+
+        <!-- Console appender -->
+        <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>${appConsoleLogPattern}</pattern>
+            </encoder>
+        </appender>
+
+        <!-- Custom loggers -->
+        <logger name="org.springframework.web" level="debug" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+        </logger>
+
+        <logger name="com.inditex.shopprice" level="debug" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+        </logger>
+
+        <!-- Root logger -->
+        <root level="debug">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+
+    </springProfile>
+
+</configuration>
